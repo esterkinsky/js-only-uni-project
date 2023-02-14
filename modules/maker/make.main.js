@@ -1,0 +1,22 @@
+const human = new Human
+const iq = document.querySelector('.iq')
+const stamina = document.querySelector('.stamina')
+const health = document.querySelector('.health')
+const happy = document.querySelector('.happy')
+setInterval(() => {
+	if (human.stamina < 0) { human.stamina = 0 }
+	if (human.health < 0) { human.health = 0 }
+	if (human.happy < 0) { human.happy = 0 }
+	if (human.iq < 0) { human.iq = 0 }
+	iq.innerHTML = human.iq
+	stamina.innerHTML = human.stamina
+	health.innerHTML = human.health
+	happy.innerHTML = human.happy
+}, 100);
+document.querySelector('.toSleep').addEventListener("click", () => human.toSleep())
+document.querySelector('.toEat').addEventListener("click", () => human.toEat())
+document.getElementById('shot').addEventListener('click', () => human.toPlay())
+document.getElementById('shoter').addEventListener('click', () => human.toPlay())
+document.getElementById('calcRoots').addEventListener('click', () => human.toThink())
+document.getElementById('canvas-button').addEventListener('click', () => human.toThink())
+document.getElementById('startrpg').addEventListener('click', () => human.toPlay())

@@ -1,0 +1,350 @@
+html,
+body {
+	padding: 0;
+	margin: 0;
+	background: var(--gray-light);
+	font-family: 'Khula', sans-serif;
+	background-size: cover;
+	background-position: center center;
+	background-attachment: fixed;
+	text-align: center;
+	overflow: visible;
+	width: 100%;
+}
+
+:root {
+	--black: #3B434E;
+	--gray-light: #ebebeb;
+	--gray-dark: #787d85;
+	--white: #fff;
+	--primary: #8956e7;
+	--primary-hover: #7417b3;
+	--gray: #A4A4A4;
+}
+
+.active {
+	background: var(--gray-light);
+}
+
+.hide {
+	display: none;
+}
+
+.menu {
+	display: flex;
+	flex-direction: row;
+	position: relative;
+	align-items: center;
+	justify-content: center;
+	padding: 10px;
+}
+
+.menu-item {
+	justify-content: center;
+	box-sizing: border-box;
+	padding: 10px;
+	cursor: pointer;
+	text-align: center;
+	border-radius: 5px;
+	font-size: 14px;
+	transition: all 0.2s;
+	color: var(--white);
+	background-color: var(--primary);
+	border: 1px solid var(--gray-light)
+}
+
+.menu-item:hover,
+#clear:hover,
+.operands:hover,
+.polyOperand:hover,
+.resultButton:hover {
+	background-color: var(--primary-hover);
+	transition: 0.2s;
+}
+
+.menu-item-button,
+.addFunction {
+	justify-content: center;
+	box-sizing: border-box;
+	padding: 5px;
+	margin: 1px;
+	border-radius: 5px;
+	font-size: 14px;
+	transition: all 0.2s;
+	cursor: pointer;
+	text-align: center;
+	border: none;
+	color: var(--black);
+	background: none;
+	border: 1px solid var(--gray);
+}
+
+.menu-item-button:hover,
+.addFunction:hover {
+	color: var(--white);
+	background-color: var(--primary);
+}
+
+.menu-item-input {
+	box-sizing: border-box;
+	padding: 10px;
+	font-size: 14px;
+	cursor: pointer;
+	text-align: center;
+	border-radius: 5px;
+	color: var(--black);
+	background: none;
+	border: 1px solid var(--gray);
+	justify-content: center;
+}
+
+.container {
+	display: inline;
+	justify-content: center;
+	align-self: center;
+	padding: 7px 15px;
+	outline-color: var(--primary);
+	background: none;
+	width: 800px;
+	max-width: 80%;
+	font-size: 16px;
+	line-height: 22px;
+	border: none;
+}
+
+.buttons-container {
+	display: flex;
+	flex-direction: row;
+	position: relative;
+	align-items: center;
+	justify-content: center;
+	padding: 5px;
+}
+
+.inputFunc,
+.inputWidth,
+.inputA,
+.inputB,
+.inputColor {
+	box-sizing: border-box;
+	cursor: pointer;
+	text-align: center;
+	width: 100px;
+	border-radius: 5px;
+	color: var(--black);
+	background: none;
+	border: 1px solid var(--gray);
+}
+
+.addFunction {
+	box-sizing: border-box;
+	cursor: pointer;
+	text-align: center;
+	border-radius: 5px;
+	color: var(--black);
+	background: none;
+	border: 1px solid var(--gray);
+
+}
+
+.funcCheckBoxes {
+	display: flex;
+	box-sizing: border-box;
+	justify-content: center;
+}
+
+.containerC {
+	max-width: 300px;
+	margin: 2vh 5vh 2vh 5vh;
+	box-shadow: 0px 0px 10px 3px var(--gray);
+}
+
+.buttons, .calcButtons {
+	display: grid;
+	border-bottom: 1px solid var(--gray);
+	border-left: 1px solidvar(--gray);
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	border-radius: 5px;
+}
+
+.buttons>div, .calcButtons>div {
+	border-top: 1px solid var(--gray);
+	border-right: 1px solid var(--gray);
+}
+
+.operands,
+#clear,
+.polyOperand,
+.resultButton {
+	cursor: pointer;
+	font-size: 25px;
+	line-height: 70px;
+	border: 0.5px solid var(--gray);
+	background-color: var(--primary);
+	color: var(--white);
+	border-radius: 5px;
+}
+
+.calc_button:hover {
+	background-color: var(--gray);
+	color: var(--white);
+	transition: 0.2s;
+}
+
+.number,
+.resultNumber ,
+.polyInputA,
+.polyInputB,
+.polyInputX,
+.newPoly,
+.polyResult {
+	border: 0.5px solid var(--gray);
+	width: 100%;
+	max-width: 100%;
+	min-width: 100%;
+	max-height: 120px;
+	min-height: 50px;
+	text-align: left;
+	border-radius: 5px;
+	height: 45px;
+	font-size: 25px;
+	background-color: var(--gray-light);
+	box-sizing: border-box;
+	padding: 5px 5px 5px 5px;
+	color: var(--gray-dark);
+	outline: none;
+}
+
+.container2 {
+	position: absolute;
+	flex-direction: column;
+	display: flex;
+	align-items: center;
+	background-color: var(--gray-light);
+	width: 27%;
+	height: 100vh;
+	max-height: 100vh;
+	scrollbar-gutter: stable;
+	top: 0;
+	left: 0;
+	transition: 0.2s;
+	margin-top: 80px;
+}
+
+.active-container {
+	transform: translateX(0%);
+}
+
+.menu-button {
+	background-image: url(js/graph2d/arrow.svg);
+	position: absolute;
+	top: 5px;
+	right: -35px;
+	height: 30px;
+	width: 30px;
+	cursor: pointer;
+	text-align: center;
+	background-size: 100% 100%;
+	font-size: 30px;
+	line-height: 30px;
+}
+
+.arrow {
+	display: inline-block;
+	margin-left: 10px;
+}
+
+.down {
+	transform: rotate(180deg);
+	transition: all 0.2s;
+}
+
+.calcsContainer {
+	display: flex;
+	box-sizing: border-box;
+	justify-content: center;
+}
+
+.funcs-сontainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+.menuGraphButton {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: var(--gray-light);
+	width: 30px;
+	height: 30px;
+	scrollbar-gutter: stable;
+	top: 0;
+	left: 0;
+	transition: 0.4s;
+	margin-top: 50px;
+	background: url(/modules/graph2d/arrow.svg )center no-repeat;
+}
+
+.funcMenu {
+	display: relative;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+.deleteFunc {
+	width: 30px;
+	height: 15px;
+	color: var(--white);
+	line-height: 15px;
+	border-radius: 5px;
+	transition: all 0.2s;
+	cursor: pointer;
+	background-color: var(--gray-dark);
+	border: none;
+}
+
+.deleteFunc:hover {
+	background-color: var(--primary);
+}
+
+.switch-btn {
+	display: inline-block;
+	width: 30px;
+	height: 15px;
+	border-radius: 19px;
+	background: var(--gray-dark);
+	z-index: 0;
+	margin: 0;
+	cursor: pointer;
+	position: relative;
+	transition-duration: 300ms;
+}
+
+.switch-btn::after {
+	content: "";
+	height: 15px;
+	width: 15px;
+	border-radius: 16px;
+	background: var(--white);
+	left: 0;
+	transition-duration: 300ms;
+	position: absolute;
+	z-index: 1;
+}
+
+.switch-on {
+	background: var(--primary);
+}
+
+.switch-on::after {
+	left: 15px;
+}
+
+.funcBlock {
+	margin: 10px;
+}
