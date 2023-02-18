@@ -1,6 +1,6 @@
 Template.prototype.Menu = () =>
 	`<div class="menu">
-		<div class="menu-item active" data-item="shotContent">Shot(er)</div>
+		<div class="menu-item" data-item="shotContent">Shot(er)</div>
 		<div class="menu-item" data-item="rootsContent">Roots</div>
 		<div class="menu-item" data-item="RPGContent">RPG</div>
 		<div class="menu-item" data-item="calculator">Calculator</div>
