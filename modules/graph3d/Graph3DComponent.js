@@ -2,10 +2,15 @@ class Graph3DComponent extends Component {
 	constructor(options) {
 		super(options)
 
+		const height = window.innerHeight;
+		const width = window.innerWidth;
+
+		this.prop = width / height;
+
 		this.WIN = {
-			LEFT: -10,
+			LEFT: -10 * this.prop,
 			BOTTOM: -10,
-			WIDTH: 20,
+			WIDTH: 20 * this.prop,
 			HEIGHT: 20,
 			CAMERA: new Point(0, 0, 50),
 			DISPLAY: new Point(0, 0, 30)
@@ -14,8 +19,8 @@ class Graph3DComponent extends Component {
 		this.canvas = new Canvas({
 			id: 'canvas3D',
 			WIN: this.WIN,
-			width: 500,
-			height: 500,
+			width,
+			height,
 			callbacks: {
 				wheel: event => this.wheel(event),
 				mouseMove: event => this.mouseMove(event),
