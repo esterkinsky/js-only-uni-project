@@ -21,6 +21,35 @@ class Graph3D {
 		return matrString;
 	}
 
+	calcCenters(figure) {
+		figure.polygons.forEach(polygon => {
+			const points = polygon.points;
+			let x = 0, y = 0, z = 0;
+			for (let j = 0; j < points.length; j++) {
+				x += figure.points[points[j]].x;
+				y += figure.points[points[j]].y;
+				z += figure.points[points[j]].z;
+			}
+			polygon.center.x = x / points.length;
+			polygon.center.y = y / points.length;
+			polygon.center.z = z / points.length;
+		});
+	}
+
+	calcDistance(figure, endPoint, name) {
+		figure.polygons.forEach(polygon => {
+			polygon[name] = Math.sqrt(
+				Math.pow(endPoint.x - polygon.center.x, 2) +
+				Math.pow(endPoint.y - polygon.center.y, 2) +
+				Math.pow(endPoint.z - polygon.center.z, 2)
+			)
+		});
+	}
+
+	sortByArtistAlgorithm(polygons) {
+		polygons.sort((a, b) => b.distance - a.distance);
+	}
+
 	transform(matrix, point) {
 		const array = this.multMatrix(
 			matrix,

@@ -215,20 +215,26 @@ body {
 	outline: none;
 }
 
-.container2 {
+.container2, .container3 {
 	position: absolute;
 	flex-direction: column;
 	display: flex;
 	align-items: center;
-	background-color: var(--gray-light);
+	background-color: none;
 	width: 27%;
-	height: 100vh;
-	max-height: 100vh;
+	height: 500px;
 	scrollbar-gutter: stable;
 	top: 0;
 	left: 0;
 	transition: 0.2s;
 	margin-top: 80px;
+	overflow: hidden;
+}
+
+.funcBlock {
+	box-sizing: border-box;
+	width: auto;
+	max-width: 100%;
 }
 
 .active-container {
@@ -272,7 +278,7 @@ body {
 	width: 100%;
 }
 
-.menuGraphButton {
+.menuGraphButton, .menuGraphButton2 {
 	position: absolute;
 	display: flex;
 	flex-direction: column;
@@ -286,14 +292,6 @@ body {
 	transition: 0.4s;
 	margin-top: 50px;
 	background: url(/modules/graph2d/arrow.svg )center no-repeat;
-}
-
-.funcMenu {
-	display: relative;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
 }
 
 .deleteFunc {

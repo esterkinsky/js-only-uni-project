@@ -5,10 +5,10 @@ class Graph2d {
 
 		this.prop = width / height;
 		this.WIN = {
-			left: -10 * this.prop,
-			bottom: -10,
-			width: 20 * this.prop,
-			height: 20,
+			LEFT: -10 * this.prop,
+			BOTTOM: -10,
+			WIDTH: 20 * this.prop,
+			HEIGHT: 20,
 		}
 
 		this.canMove = false;
@@ -77,43 +77,43 @@ class Graph2d {
 	}
 
 	printOXY() {
-		this.canvas.line(0, this.WIN.bottom, 0, this.WIN.height + this.WIN.bottom, 2, '#787d85')
-		this.canvas.line(this.WIN.left, 0, this.WIN.width + this.WIN.left, 0, 2, '#787d85')
+		this.canvas.line(0, this.WIN.BOTTOM, 0, this.WIN.HEIGHT + this.WIN.BOTTOM, 2, '#787d85')
+		this.canvas.line(this.WIN.LEFT, 0, this.WIN.WIDTH + this.WIN.LEFT, 0, 2, '#787d85')
 
-		this.canvas.line(this.WIN.width + this.WIN.left, 0, this.WIN.width + this.WIN.left - 0.6, 0.20, 2, '#787d85');
-		this.canvas.line(this.WIN.width + this.WIN.left, 0, this.WIN.width + this.WIN.left - 0.6, - 0.20, 2, '#787d85')
-		this.canvas.line(0, this.WIN.height + this.WIN.bottom, - 0.20, this.WIN.height + this.WIN.bottom - 0.6, 2, '#787d85')
-		this.canvas.line(0, this.WIN.height + this.WIN.bottom, 0.20, this.WIN.height + this.WIN.bottom - 0.6, 2, '#787d85')
+		this.canvas.line(this.WIN.WIDTH + this.WIN.LEFT, 0, this.WIN.WIDTH + this.WIN.LEFT - 0.6, 0.20, 2, '#787d85');
+		this.canvas.line(this.WIN.WIDTH + this.WIN.LEFT, 0, this.WIN.WIDTH + this.WIN.LEFT - 0.6, - 0.20, 2, '#787d85')
+		this.canvas.line(0, this.WIN.HEIGHT + this.WIN.BOTTOM, - 0.20, this.WIN.HEIGHT + this.WIN.BOTTOM - 0.6, 2, '#787d85')
+		this.canvas.line(0, this.WIN.HEIGHT + this.WIN.BOTTOM, 0.20, this.WIN.HEIGHT + this.WIN.BOTTOM - 0.6, 2, '#787d85')
 	}
 
 	grid() {
-		for (var i = 0; i < this.WIN.height + this.WIN.bottom; i++) {
-			this.canvas.line(this.WIN.left, i, this.WIN.width + this.WIN.left, i, 1, '#d7d7d7')
+		for (var i = 0; i < this.WIN.HEIGHT + this.WIN.BOTTOM; i++) {
+			this.canvas.line(this.WIN.LEFT, i, this.WIN.WIDTH + this.WIN.LEFT, i, 1, '#d7d7d7')
 			this.canvas.line(0.1, i, -0.1, i, '#A4A4A4')
 		}
-		for (var i = 0; i > this.WIN.bottom; i--) {
-			this.canvas.line(this.WIN.left, i, this.WIN.width + this.WIN.left, i, 1, '#d7d7d7')
+		for (var i = 0; i > this.WIN.BOTTOM; i--) {
+			this.canvas.line(this.WIN.LEFT, i, this.WIN.WIDTH + this.WIN.LEFT, i, 1, '#d7d7d7')
 			this.canvas.line(0.1, i, -0.1, i, '#787d85')
 		}
-		for (var i = 0; i < this.WIN.width + this.WIN.left; i++) {
-			this.canvas.line(i, this.WIN.bottom, i, this.WIN.height + this.WIN.bottom, 1, '#d7d7d7')
+		for (var i = 0; i < this.WIN.WIDTH + this.WIN.LEFT; i++) {
+			this.canvas.line(i, this.WIN.BOTTOM, i, this.WIN.HEIGHT + this.WIN.BOTTOM, 1, '#d7d7d7')
 			this.canvas.line(i, 0.1, i, -0.1, '#787d85')
 		}
-		for (var i = 0; i > this.WIN.left; i--) {
-			this.canvas.line(i, this.WIN.bottom, i, this.WIN.height + this.WIN.bottom, 1, '#d7d7d7')
+		for (var i = 0; i > this.WIN.LEFT; i--) {
+			this.canvas.line(i, this.WIN.BOTTOM, i, this.WIN.HEIGHT + this.WIN.BOTTOM, 1, '#d7d7d7')
 			this.canvas.line(i, 0.1, i, -0.1, 1, '#787d85')
 		}
 	}
 
 	printNums() {
-		const streakLength = this.WIN.height / (this.WIN.width + 30);
+		const streakLength = this.WIN.HEIGHT / (this.WIN.WIDTH + 30);
 		const len = streakLength / 2;
-		const shiftY = -this.WIN.height * 0.01 - 0.04;
-		const shiftX = this.WIN.width * 0.001 + 0.04;
-		for (let i = Math.round(this.WIN.left); i < this.WIN.left + this.WIN.width; i++) {
+		const shiftY = -this.WIN.HEIGHT * 0.01 - 0.04;
+		const shiftX = this.WIN.WIDTH * 0.001 + 0.04;
+		for (let i = Math.round(this.WIN.LEFT); i < this.WIN.LEFT + this.WIN.WIDTH; i++) {
 			this.canvas.printText(i, i + shiftX, shiftY,);
 		}
-		for (let i = Math.round(this.WIN.bottom); i < this.WIN.bottom + this.WIN.height; i++) {
+		for (let i = Math.round(this.WIN.BOTTOM); i < this.WIN.BOTTOM + this.WIN.HEIGHT; i++) {
 			this.canvas.printText(i, shiftX, i + shiftY,);
 		}
 	}
@@ -121,11 +121,11 @@ class Graph2d {
 	wheel(event) {
 		event.preventDefault()
 		const delta = (event.wheelDelta > 0) ? -this.zoomStep : this.zoomStep;
-		if (this.WIN.width + delta * this.prop > 0 && this.WIN.height + delta > 0) {
-			this.WIN.width += this.prop * delta;
-			this.WIN.height += delta;
-			this.WIN.left -= this.prop * delta / 2;
-			this.WIN.bottom -= delta / 2;
+		if (this.WIN.WIDTH + delta * this.prop > 0 && this.WIN.HEIGHT + delta > 0) {
+			this.WIN.WIDTH += this.prop * delta;
+			this.WIN.HEIGHT += delta;
+			this.WIN.LEFT -= this.prop * delta / 2;
+			this.WIN.BOTTOM -= delta / 2;
 		}
 	}
 
@@ -139,30 +139,30 @@ class Graph2d {
 
 	mouseMove(event) {
 		if (this.canMove) {
-			this.WIN.left -= this.canvas.sx(event.movementX);
-			this.WIN.bottom -= this.canvas.sy(event.movementY);
+			this.WIN.LEFT -= this.canvas.sx(event.movementX);
+			this.WIN.BOTTOM -= this.canvas.sy(event.movementY);
 		}
-		this.mousePosY = this.WIN.bottom + this.canvas.sy(event.offsetY);
-		this.mousePosX = this.WIN.left + this.canvas.sx(event.offsetX);
+		this.mousePosY = this.WIN.BOTTOM + this.canvas.sy(event.offsetY);
+		this.mousePosX = this.WIN.LEFT + this.canvas.sx(event.offsetX);
 	}
 
 	mouseLeave() {
 		this.canMove = false;
 	}
 
-printFunction(f, color = 'black', lineWidth = 2) {
-		const { width, left, height } = this.WIN;
-		const dx = width / 1000;
-		let x = left;
+	printFunction(f, color = 'black', linewidth = 2) {
+		const { WIDTH, LEFT, HEIGHT } = this.WIN;
+		const dx = WIDTH / 1000;
+		let x = LEFT;
 
-		while (x < width + left) {
+		while (x < WIDTH + LEFT) {
 			const y1 = f(x);
 			const y2 = f(x + dx);
-			if (Math.abs(y1 - y2) < height) {
-				this.canvas.line(x, f(x), x + dx, f(x + dx), lineWidth, color);
+			if (Math.abs(y1 - y2) < HEIGHT) {
+				this.canvas.line(x, f(x), x + dx, f(x + dx), linewidth, color);
 			}
 			else {
-				this.canvas.line(x, f(x), x + dx, f(x + dx), lineWidth, color, true);
+				this.canvas.line(x, f(x), x + dx, f(x + dx), linewidth, color, true);
 			}
 
 			x += dx;
@@ -176,8 +176,8 @@ printFunction(f, color = 'black', lineWidth = 2) {
 	printDerivative(f, x) {
 		const k = this.getDerivative(f, x)
 		let b = f(x) - k * x;
-		let x1 = this.WIN.left;
-		let x2 = this.WIN.left + this.WIN.width;
+		let x1 = this.WIN.LEFT;
+		let x2 = this.WIN.LEFT + this.WIN.WIDTH;
 		let y1 = k * x1 + b;
 		let y2 = k * x2 + b;
 		this.canvas.line(x1, y1, x2, y2, 1, '#7417b3', true);
@@ -212,13 +212,13 @@ printFunction(f, color = 'black', lineWidth = 2) {
 			this.canvas.point({ x: x + dx / 2, y: 0, color })
 		}
 	}
-	
+
 	printRect(event) {
 		const x = Math.floor(this.canvas.x(event.offsetX));
 		const y = Math.ceil(this.canvas.y(event.offsetY));
 		this.canvas.drawRect(x, y, 1, 1, '#dcdcdc');
-		const shiftY = this.WIN.height * 0.01;
-		const shiftX = this.WIN.width * 0.01 + 0.02;
+		const shiftY = this.WIN.HEIGHT * 0.01;
+		const shiftX = this.WIN.WIDTH * 0.01 + 0.02;
 		const nums = [
 			{ x: 0, y: 0, shiftX: -shiftX, shiftY: shiftY },
 			{ x: 0, y: -1, shiftX: -shiftX, shiftY: -shiftY },
@@ -278,7 +278,7 @@ printFunction(f, color = 'black', lineWidth = 2) {
 		this.funcs[num] = {
 			f: null,
 			color: 'black',
-			width: 2,
+			WIDTH: 2,
 			a: 0,
 			b: 0,
 		}
